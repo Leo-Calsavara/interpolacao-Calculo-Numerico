@@ -16,9 +16,12 @@ def interpol(x_tenho, ponto_A, ponto_B, ponto_C):
     return y_queria
 
 print("Favor entrar com os três pontos conhecidos:\n")
-A = ponto(int(input("digite o elemento X do ponto A: ")), int(input("digite o elemento Y do ponto A: ")))
-B = ponto(int(input("digite o elemento X do ponto B: ")), int(input("digite o elemento Y do ponto B: ")))
-C = ponto(int(input("digite o elemento X do ponto C: ")), int(input("digite o elemento Y do ponto C: ")))
-D = int(input("Entre com o X para o qual deseja descobir o y: "))
-y = interpol(D, A, B, C)
-print("Seu y = {:.4f}".format(y))
+A = ponto(float(input("digite o elemento X do ponto A: ")), float(input("digite o elemento Y do ponto A: ")))
+B = ponto(float(input("digite o elemento X do ponto B: ")), float(input("digite o elemento Y do ponto B: ")))
+C = ponto(float(input("digite o elemento X do ponto C: ")), float(input("digite o elemento Y do ponto C: ")))
+D = float(input("Entre com o X para o qual deseja descobir o y: "))
+if(((A.x - B.x)*(A.x - C.x)==0) or ((B.x - A.x)*(B.x - C.x)==0) or ((C.x - A.x)*(C.x - B.x)==0)): 
+    print("Os pontos requeridos vão resultar em uma divisão por zero, favor modifica-los")
+else:
+    y = interpol(D, A, B, C)
+    print("Seu y = {:.4f}".format(y))
